@@ -212,7 +212,7 @@ const page = () => {
                 className="w-full resize-none rounded-lg border border-white/10 bg-black/40 px-4 py-3 text-sm text-white outline-none transition focus:border-[#7E22CE] focus:ring-1 focus:ring-[#7E22CE]"
               />
             </div>
- 
+
             <button
               type="submit"
               className="flex w-full items-center justify-center gap-1.5 rounded-lg border border-white/10 bg-white/[0.04] py-3.5 text-sm font-medium text-white transition hover:bg-white/[0.08]"

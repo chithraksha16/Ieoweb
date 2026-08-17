@@ -1,4 +1,5 @@
 import Button from '@/components/ui/Button'
+import ServicesShowcase from '@/components/ServicesShowcase'
 const page = () => {
   return (
     <div className='w-full'>
@@ -26,6 +27,8 @@ const page = () => {
                 </div>
               </div>
             </div>
+
+            <ServicesShowcase/>
     </div>
   )
 }
