@@ -7,13 +7,13 @@ import { motion, useInView } from "framer-motion";
 
 
 const IMAGES = {
-  seo: "/services/seo.webp",
-  ads: "/services/ads.webp",
-  brand: "/services/branding.webp",
-  social: "/services/social.webp",
-  design: "/services/design.webp",
-  email: "/services/crm.webp",
-  web: "/services/web-development.webp",
+  seo: "/services/compressed_seo-image.webp",
+  ads: "/services/compressed_paid-Ad-image.webp",
+  brand: "/services/compressed_branding-image.webp",
+  social: "/services/compressed_social-image.webp",
+  design: "/services/compressed_graphic-image.webp",
+  email: "/services/compressed_email-image.webp",
+  web: "/services/compressed_web-image.webp",
 } as const;
 
 type ImageKey = keyof typeof IMAGES;
@@ -176,7 +176,7 @@ function Panel({
         border
         border-white/10
         bg-[#131015]
-        aspect-4/5
+        aspect-4/4
       "
     >
       {!failed ? (
@@ -184,6 +184,7 @@ function Panel({
           src={IMAGES[imgKey]}
           alt={alt}
           fill
+          quality={85}
           sizes="
             (max-width: 767px) 100vw,
             42vw
@@ -532,8 +533,7 @@ export default function ServicesShowcase(): React.ReactElement {
           <h2
             className="
               m-0
-              font-serif
-              text-[34px]
+              text-2xl
               text-center
               font-medium
               font-playfair
@@ -541,11 +541,11 @@ export default function ServicesShowcase(): React.ReactElement {
               tracking-[-0.01em]
               text-[#F5F1EA]
 
-              sm:text-[44px]
+              sm:text-3xl
 
-              md:text-[52px]
+              md:text-4xl
+              lg:text-[40px]
 
-              lg:text-[58px]
             "
           >
            Growth-Driven Services

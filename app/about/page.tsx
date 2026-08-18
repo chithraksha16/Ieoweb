@@ -1,3 +1,4 @@
+import PortfolioOverview from '@/components/PortfolioOverview'
 import Button from '@/components/ui/Button'
 const page = () => {
   return (
@@ -42,10 +43,21 @@ const page = () => {
         </div>
       </div>
       
-        <div className='w-full bg-white'>
 
+        <div className='w-full bg-white py-10'>
+          <div className="mx-auto flex w-full max-w-5xl flex-col items-center space-y-5 text-white">
+                <h2 className="rounded-full text-[#6200EE]  text-center font-playfair text-sm font-medium sm:text-base">
+                  The Work Behind The Work
+                </h2>
+                <h3 className=" text-black max-w-xl  text-center font-dmsans text-2xl font-semibold leading-tight sm:text-3xl md:text-4xl">
+                  Behind the Work That Moves Brands Forward
+                </h3>
+            </div>
+
+            <PortfolioOverview variant="light"/>
+
+            </div>
         </div>
-    </div>
   )
 }
 

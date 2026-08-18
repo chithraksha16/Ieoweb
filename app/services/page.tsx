@@ -1,5 +1,6 @@
 import Button from '@/components/ui/Button'
 import ServicesShowcase from '@/components/ServicesShowcase'
+import CTASection from '@/components/CtaSection'
 const page = () => {
   return (
     <div className='w-full'>
@@ -29,6 +30,7 @@ const page = () => {
             </div>
 
             <ServicesShowcase/>
+            <CTASection/>
     </div>
   )
 }
