@@ -226,7 +226,6 @@ export default function PortfolioOverview({
               md:col-start-2
               md:row-start-1
             "
-            padded
             backing={t.backing}
           />
 

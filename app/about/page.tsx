@@ -1,3 +1,4 @@
+import OurStory from '@/components/OurStory'
 import PortfolioOverview from '@/components/PortfolioOverview'
 import Button from '@/components/ui/Button'
 const page = () => {
@@ -57,6 +58,7 @@ const page = () => {
             <PortfolioOverview variant="light"/>
 
             </div>
+            <OurStory/>
         </div>
   )
 }
