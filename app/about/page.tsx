@@ -1,6 +1,8 @@
+import CtaSection from '@/components/CtaSection'
 import OurStory from '@/components/OurStory'
 import PortfolioOverview from '@/components/PortfolioOverview'
 import Button from '@/components/ui/Button'
+import WhyChooseUs from '@/components/WhyChooseUs'
 const page = () => {
   return (
     <div className='w-full'>
@@ -56,9 +58,10 @@ const page = () => {
             </div>
 
             <PortfolioOverview variant="light"/>
-
             </div>
             <OurStory/>
+            <WhyChooseUs/>
+            <CtaSection/>
         </div>
   )
 }
