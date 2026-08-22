@@ -1,58 +1,53 @@
 "use client";
 
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
-import {
-  Globe2,
-  Megaphone,
-  Sparkles,
-  Send,
-  Palette,
-  Mail,
-  Monitor,
-} from "lucide-react";
+import { FaGlobe } from "react-icons/fa";
+import { RiMegaphoneFill,RiSparklingFill,RiSendInsFill,RiPaletteFill,RiMailSendFill  } from "react-icons/ri";
+import { PiMonitorFill } from "react-icons/pi";
+
 
 const services = [
   {
     title: "SEO & GEO",
     description:
       "Boost your visibility across search engines and AI-powered search.",
-    icon: Globe2,
+    icon: FaGlobe,
   },
   {
     title: "Paid Advertising",
     description:
       "Reach the right audience and turn targeted campaigns into measurable growth.",
-    icon: Megaphone,
+    icon: RiMegaphoneFill,
   },
   {
     title: "Branding & Creative",
     description:
       "Build a distinctive brand with creative design, content, and AI-powered visuals.",
-    icon: Sparkles,
+    icon: RiSparklingFill,
   },
   {
     title: "Social & Creator Marketing",
     description:
       "Build meaningful connections through social media, content, and creators.",
-    icon: Send,
+    icon: RiSendInsFill,
   },
   {
     title: "Graphic Design",
     description:
       "Create eye-catching visuals that make your brand stand out.",
-    icon: Palette,
+    icon: RiPaletteFill,
   },
   {
     title: "Email & Automation",
     description:
       "Build lasting relationships through personalized email, CRM, and automation.",
-    icon: Mail,
+    icon: RiMailSendFill ,
   },
   {
     title: "UI/UX & Web Development",
     description:
       "Build fast, intuitive websites that turn visitors into customers.",
-    icon: Monitor,
+    icon: PiMonitorFill,
   },
 ];
 
@@ -175,7 +170,7 @@ function ServiceCard({
             }}
           >
             <Icon
-              strokeWidth={2.2}
+             
               className="h-14 w-14 sm:h-[64px] sm:w-[64px]"
             />
           </motion.div>
@@ -205,7 +200,7 @@ export default function ServicesSection() {
         {/* Section Header */}
         <div className="mx-auto mb-12 max-w-3xl text-center sm:mb-14 lg:mb-16">
 
-          <p className="font-playfair text-base font-medium italic text-[#7E22CE] sm:text-lg">
+          <p className="font-playfair text-base font-medium  text-[#7E22CE] sm:text-lg">
             What We Do
           </p>
 
@@ -265,7 +260,7 @@ export default function ServicesSection() {
         <div className="mt-14 flex justify-center sm:mt-16">
           <a
             href="/services"
-            className="group inline-flex items-center gap-2 rounded-full bg-black px-5 py-2.5 font-dmsans text-xs font-medium text-white transition-all duration-300 hover:bg-[#7E22CE] hover:shadow-[0_8px_25px_rgba(126,34,206,0.3)] sm:px-6 sm:py-3 sm:text-sm"
+            className="group inline-flex items-center gap-2 rounded-full bg-linear-to-br form-50% from-[#7E22CE] to-90%  to-black px-5 py-2.5 font-dmsans text-xs font-medium text-white transition-all duration-300 hover:bg-[#7E22CE] hover:shadow-[0_8px_25px_rgba(126,34,206,0.3)] sm:px-6 sm:py-3 sm:text-sm"
           >
             View All Services
             <span className="transition-transform duration-300 group-hover:translate-x-1">

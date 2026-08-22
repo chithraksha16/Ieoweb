@@ -1,7 +1,10 @@
 "use client";
 
 import ColorBends from "@/components/ColorBends";
+import PortfolioOverview from "@/components/PortfolioOverview";
+import ServicesSection from "@/components/ServiceSection";
 import Button from "@/components/ui/Button";
+import HowItWorks from "@/components/HowItWorks"
 
 export default function Home() {
   return (
@@ -74,7 +77,59 @@ export default function Home() {
       {/* SECOND SECTION */}
       <section className="relative z-10 min-h-screen w-full bg-white">
         {/* Your next section */}
+        <ServicesSection/>
       </section>
+
+      {/* THIRD SECTION */}
+      <section className="relative z-10 min-h-screen w-full bg-black">
+        {/* Your next section */}
+       <div className="mx-auto flex w-full max-w-5xl flex-col items-center justify-between gap-6 px-4 py-5 text-white sm:flex-row sm:items-start sm:gap-8 sm:px-6 lg:px-0">
+  <h2 className="shrink-0 text-center font-playfair text-2xl font-medium sm:text-left sm:text-3xl md:text-4xl">
+    Overview
+  </h2>
+
+  <p className="max-w-xl text-center font-dmsans text-base font-normal leading-relaxed text-white/60 sm:text-right sm:text-lg md:text-xl lg:text-2xl">
+    We bring campaigns to life with strategy, creativity, and performance
+    data working together.
+  </p>
+</div>
+  <PortfolioOverview variant="dark"/>
+  <div className="relative mx-auto w-full max-w-[1120px] overflow-hidden rounded-lg border border-white/15 bg-black px-5 py-12 text-center sm:px-8 sm:py-14 md:px-12 md:py-16 lg:py-18">
+
+  {/* Bottom Purple Glow */}
+  <div className="pointer-events-none absolute -bottom-32 left-1/2 h-64 w-[75%] -translate-x-1/2 rounded-[50%] bg-[#7E22CE]/80 blur-[70px] sm:-bottom-40 sm:h-72 sm:w-[65%] sm:blur-[90px] md:-bottom-48 md:h-80 md:w-[60%]" />
+
+  {/* Content */}
+  <div className="relative z-10 mx-auto flex max-w-3xl flex-col items-center">
+
+    {/* Eyebrow */}
+    <div className="font-dmsans text-[11px] font-medium uppercase tracking-wide text-[#B89AD8] sm:text-xs">
+      LET'S WORK TOGETHER
+    </div>
+
+    {/* Heading */}
+    <div className="mt-4 max-w-[850px] font-playfair text-3xl font-semibold leading-[1.1] text-white sm:mt-5 sm:text-4xl md:text-5xl lg:text-[52px]">
+      Ready to make your brand impossible to ignore?
+    </div>
+
+    {/* Description */}
+    <div className="mt-5 max-w-2xl font-dmsans text-sm leading-6 text-white/55 sm:mt-6 sm:text-base sm:leading-7 md:text-[17px]">
+      Tell us where you're headed and we'll show you how strategy, design,
+      and execution come together to get you there.
+    </div>
+
+    {/* CTA */}
+   <Button href="#contact" className="mt-2">Start the conversation</Button>
+  </div>
+</div>
+  </section>
+
+  <section className="relative z-10 min-h-screen w-full bg-white">
+        {/* Your next section */}
+        <HowItWorks/>
+      </section>
+
+
     </>
   );
 }
