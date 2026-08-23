@@ -215,7 +215,7 @@ export default function ProcessSection() {
         {/* ================= HEADER ================= */}
         <div className="mx-auto mb-12 max-w-3xl text-center sm:mb-14 lg:mb-16">
 
-          <div className="font-playfair text-sm font-medium italic text-[#7E22CE] sm:text-base">
+          <div className="font-playfair text-sm font-medium  text-[#7E22CE] sm:text-base">
             How It Works
           </div>
 

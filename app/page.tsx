@@ -81,7 +81,7 @@ export default function Home() {
       </section>
 
       {/* THIRD SECTION */}
-      <section className="relative z-10 min-h-screen w-full bg-black">
+      <section className="relative z-10 min-h-screen w-full bg-black py-10">
         {/* Your next section */}
        <div className="mx-auto flex w-full max-w-5xl flex-col items-center justify-between gap-6 px-4 py-5 text-white sm:flex-row sm:items-start sm:gap-8 sm:px-6 lg:px-0">
   <h2 className="shrink-0 text-center font-playfair text-2xl font-medium sm:text-left sm:text-3xl md:text-4xl">
