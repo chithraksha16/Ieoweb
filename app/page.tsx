@@ -5,6 +5,9 @@ import PortfolioOverview from "@/components/PortfolioOverview";
 import ServicesSection from "@/components/ServiceSection";
 import Button from "@/components/ui/Button";
 import HowItWorks from "@/components/HowItWorks"
+import TestimonialDeck from "@/components/TestimonialDeck";
+import FAQSimple from "@/components/FAQSimple";
+import CtaSection from "@/components/CtaSection";
 
 export default function Home() {
   return (
@@ -127,6 +130,25 @@ export default function Home() {
   <section className="relative z-10 min-h-screen w-full bg-white">
         {/* Your next section */}
         <HowItWorks/>
+      </section>
+
+       <section className="relative z-10  w-full bg-white">
+        {/* Your next section */}
+        <TestimonialDeck/>
+      </section>
+
+      <section className="relative z-10 min-h-screen w-full bg-black">
+        {/* Your next section */}
+        
+      </section>
+
+      <section className="relative z-10  w-full bg-white">
+        {/* Your next section */}
+        <FAQSimple/>
+      </section>
+
+      <section className="relative z-10  w-full">
+        <CtaSection/>
       </section>
 
 
