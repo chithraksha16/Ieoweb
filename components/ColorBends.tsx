@@ -75,7 +75,6 @@ void main() {
 
   q += toward * uMouseInfluence * 0.2;
 
-
   // ==========================================
   // WARP / MOTION
   // ==========================================
@@ -92,7 +91,6 @@ void main() {
     q += (rr - q) * 0.15;
   }
 
-
   // ==========================================
   // PURE PURPLE COLOR
   // #7E22CE
@@ -103,7 +101,6 @@ void main() {
   float cover = 0.0;
 
   vec2 s = q;
-
 
   // We keep the original ColorBends
   // shape/movement calculation,
@@ -186,7 +183,6 @@ void main() {
     );
   }
 
-
   // ==========================================
   // ONLY #7E22CE
   // ==========================================
@@ -199,13 +195,11 @@ void main() {
 
   col = purple * cover;
 
-
   // ==========================================
   // INTENSITY
   // ==========================================
 
   col *= uIntensity;
-
 
   // ==========================================
   // NOISE
@@ -238,7 +232,6 @@ void main() {
     );
   }
 
-
   // ==========================================
   // TRANSPARENCY
   // ==========================================
@@ -261,7 +254,6 @@ void main() {
 }
 `;
 
-
 const vert = `
 varying vec2 vUv;
 
@@ -276,7 +268,6 @@ void main() {
     );
 }
 `;
-
 
 export default function ColorBends({
   className,
@@ -296,7 +287,6 @@ export default function ColorBends({
   intensity = 1.5,
   bandWidth = 6,
 }: ColorBendsProps) {
-
   const containerRef =
     useRef<HTMLDivElement | null>(null);
 
@@ -331,22 +321,18 @@ export default function ColorBends({
   const pointerSmoothRef =
     useRef<number>(8);
 
-
   // ==========================================
   // THREE.JS SETUP
   // ==========================================
 
   useEffect(() => {
-
     const container =
       containerRef.current;
 
     if (!container) return;
 
-
     const scene =
       new THREE.Scene();
-
 
     const camera =
       new THREE.OrthographicCamera(
@@ -358,13 +344,11 @@ export default function ColorBends({
         1
       );
 
-
     const geometry =
       new THREE.PlaneGeometry(
         2,
         2
       );
-
 
     const uColorsArray =
       Array.from(
@@ -378,7 +362,6 @@ export default function ColorBends({
             0
           )
       );
-
 
     const material =
       new THREE.ShaderMaterial({
@@ -484,10 +467,8 @@ export default function ColorBends({
         transparent: true,
       });
 
-
     materialRef.current =
       material;
-
 
     const mesh =
       new THREE.Mesh(
@@ -496,7 +477,6 @@ export default function ColorBends({
       );
 
     scene.add(mesh);
-
 
     // ========================================
     // RENDERER
@@ -512,10 +492,8 @@ export default function ColorBends({
         alpha: true,
       });
 
-
     rendererRef.current =
       renderer;
-
 
     (
       renderer as any
@@ -524,7 +502,6 @@ export default function ColorBends({
         THREE as any
       ).SRGBColorSpace;
 
-
     renderer.setPixelRatio(
       Math.min(
         window.devicePixelRatio || 1,
@@ -532,14 +509,12 @@ export default function ColorBends({
       )
     );
 
-
     renderer.setClearColor(
       0x000000,
       transparent
         ? 0
         : 1
     );
-
 
     renderer.domElement.style.width =
       "100%";
@@ -550,35 +525,29 @@ export default function ColorBends({
     renderer.domElement.style.display =
       "block";
 
-
     container.appendChild(
       renderer.domElement
     );
 
-
     const clock =
       new THREE.Clock();
-
 
     // ========================================
     // RESIZE
     // ========================================
 
     const handleResize = () => {
-
       const w =
         container.clientWidth || 1;
 
       const h =
         container.clientHeight || 1;
 
-
       renderer.setSize(
         w,
         h,
         false
       );
-
 
       (
         material.uniforms
@@ -589,14 +558,19 @@ export default function ColorBends({
       );
     };
 
-
     handleResize();
 
+    // ========================================
+    // RESIZE OBSERVER
+    // FIXED TYPESCRIPT ISSUE
+    // ========================================
+
+    let usingResizeObserver = false;
 
     if (
-      "ResizeObserver" in window
+      typeof ResizeObserver !==
+      "undefined"
     ) {
-
       const ro =
         new ResizeObserver(
           handleResize
@@ -609,14 +583,13 @@ export default function ColorBends({
       resizeObserverRef.current =
         ro;
 
+      usingResizeObserver = true;
     } else {
-
       window.addEventListener(
         "resize",
         handleResize
       );
     }
-
 
     // ========================================
     // ANIMATION LOOP
@@ -630,11 +603,9 @@ export default function ColorBends({
       const elapsed =
         clock.elapsedTime;
 
-
       material.uniforms
         .uTime.value =
         elapsed;
-
 
       const deg =
         (
@@ -644,18 +615,15 @@ export default function ColorBends({
         autoRotateRef.current *
           elapsed;
 
-
       const rad =
         (deg * Math.PI) /
         180;
-
 
       const c =
         Math.cos(rad);
 
       const s =
         Math.sin(rad);
-
 
       (
         material.uniforms
@@ -665,13 +633,11 @@ export default function ColorBends({
         s
       );
 
-
       const cur =
         pointerCurrentRef.current;
 
       const tgt =
         pointerTargetRef.current;
-
 
       const amt =
         Math.min(
@@ -680,24 +646,20 @@ export default function ColorBends({
             pointerSmoothRef.current
         );
 
-
       cur.lerp(
         tgt,
         amt
       );
-
 
       (
         material.uniforms
           .uPointer.value as THREE.Vector2
       ).copy(cur);
 
-
       renderer.render(
         scene,
         camera
       );
-
 
       rafRef.current =
         requestAnimationFrame(
@@ -705,12 +667,10 @@ export default function ColorBends({
         );
     };
 
-
     rafRef.current =
       requestAnimationFrame(
         loop
       );
-
 
     // ========================================
     // CLEANUP
@@ -719,20 +679,27 @@ export default function ColorBends({
     return () => {
 
       if (
-        rafRef.current !== null
+        rafRef.current !==
+        null
       ) {
         cancelAnimationFrame(
           rafRef.current
         );
+
+        rafRef.current =
+          null;
       }
 
+      // FIX:
+      // Don't let TypeScript narrow
+      // resizeObserverRef.current to never.
 
-      if (
-        resizeObserverRef.current
-      ) {
+      if (usingResizeObserver) {
 
-        resizeObserverRef.current
-          .disconnect();
+        resizeObserverRef.current?.disconnect();
+
+        resizeObserverRef.current =
+          null;
 
       } else {
 
@@ -742,7 +709,6 @@ export default function ColorBends({
         );
       }
 
-
       geometry.dispose();
 
       material.dispose();
@@ -751,13 +717,11 @@ export default function ColorBends({
 
       renderer.forceContextLoss();
 
-
       if (
         renderer.domElement &&
         renderer.domElement.parentElement ===
           container
       ) {
-
         container.removeChild(
           renderer.domElement
         );
@@ -765,7 +729,6 @@ export default function ColorBends({
     };
 
   }, []);
-
 
   // ==========================================
   // UPDATE PROPS
@@ -781,13 +744,11 @@ export default function ColorBends({
 
     if (!material) return;
 
-
     rotationRef.current =
       rotation;
 
     autoRotateRef.current =
       autoRotate;
-
 
     material.uniforms
       .uSpeed.value =
@@ -829,7 +790,6 @@ export default function ColorBends({
       .uBandWidth.value =
       bandWidth;
 
-
     // ========================================
     // COLOR PARSING
     // ========================================
@@ -845,7 +805,6 @@ export default function ColorBends({
             ""
           )
           .trim();
-
 
       const v =
         h.length === 3
@@ -884,14 +843,12 @@ export default function ColorBends({
               ),
             ];
 
-
       return new THREE.Vector3(
         v[0] / 255,
         v[1] / 255,
         v[2] / 255
       );
     };
-
 
     const arr =
       (
@@ -904,7 +861,6 @@ export default function ColorBends({
         )
         .map(toVec3);
 
-
     for (
       let i = 0;
       i < MAX_COLORS;
@@ -916,7 +872,6 @@ export default function ColorBends({
           material.uniforms
             .uColors.value as THREE.Vector3[]
         )[i];
-
 
       if (
         i < arr.length
@@ -936,7 +891,6 @@ export default function ColorBends({
       }
     }
 
-
     // Always render at least
     // one purple color.
 
@@ -947,13 +901,11 @@ export default function ColorBends({
         1
       );
 
-
     material.uniforms
       .uTransparent.value =
       transparent
         ? 1
         : 0;
-
 
     if (renderer) {
 
@@ -982,7 +934,6 @@ export default function ColorBends({
     transparent,
   ]);
 
-
   // ==========================================
   // MOUSE / POINTER
   // ==========================================
@@ -995,7 +946,6 @@ export default function ColorBends({
     const container =
       containerRef.current;
 
-
     if (
       !material ||
       !container
@@ -1003,14 +953,12 @@ export default function ColorBends({
       return;
     }
 
-
     const handlePointerMove = (
       e: PointerEvent
     ) => {
 
       const rect =
         container.getBoundingClientRect();
-
 
       const x =
         (
@@ -1022,7 +970,6 @@ export default function ColorBends({
         ) *
           2 -
         1;
-
 
       const y =
         -(
@@ -1037,19 +984,16 @@ export default function ColorBends({
           1
         );
 
-
       pointerTargetRef.current.set(
         x,
         y
       );
     };
 
-
     container.addEventListener(
       "pointermove",
       handlePointerMove
     );
-
 
     return () => {
 
@@ -1060,7 +1004,6 @@ export default function ColorBends({
     };
 
   }, []);
-
 
   return (
     <div
