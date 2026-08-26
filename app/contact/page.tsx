@@ -9,15 +9,15 @@ const page = () => {
   {
     icon: MdOutlineEmail,
     label: "Email",
-    value: "hello@ieoweb.com",
-    href: "mailto:hello@ieoweb.com",
+    value: "ieoweb111@gmail.com",
+    href: "ieoweb111@gmail.com",
     note: "We typically respond within one business day.",
   },
   {
     icon:MdOutlineLocalPhone,
     label: "Phone",
-    value: "+91 8736373638",
-    href: "tel:+918736373638",
+    value: "+91 9148520240", 
+    href: "tel:+919148520240",
     note: "Monday – Friday • 9:00 AM – 6:00 PM IST",
   },
   {
@@ -212,10 +212,9 @@ const page = () => {
                 className="w-full resize-none rounded-lg border border-white/10 bg-black/40 px-4 py-3 text-sm text-white outline-none transition focus:border-[#7E22CE] focus:ring-1 focus:ring-[#7E22CE]"
               />
             </div>
-
             <button
               type="submit"
-              className="flex w-full items-center justify-center gap-1.5 rounded-lg border border-white/10 bg-white/[0.04] py-3.5 text-sm font-medium text-white transition hover:bg-white/[0.08]"
+              className="flex w-full items-center justify-center gap-1.5 rounded-lg border border-white/10 bg-white/4 py-3.5 text-sm font-medium text-white transition hover:bg-white/8"
             >
               Submit
               <FaArrowRight  className="h-4 w-4 -rotate-45" />

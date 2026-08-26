@@ -206,24 +206,24 @@ export default function Footer() {
             >
               <li className="min-w-0">
                 <a
-                  href="mailto:contact@ieoweb.com"
+                  href="mailto:ieoweb111@gmail.com"
                   className="
                     block
-                    break-words
+                    wrap-break-word
                     transition-colors
                     hover:text-white
                   "
                 >
-                  contact@ieoweb.com
+                  ieoweb111@gmail.com
                 </a>
               </li>
 
               <li>
                 <a
-                  href="tel:+918105280460"
+                  href="tel:+919148520240"
                   className="transition-colors hover:text-white"
                 >
-                  +91 8105280460
+                  +91 9148520240
                 </a>
               </li>
             </ul>
