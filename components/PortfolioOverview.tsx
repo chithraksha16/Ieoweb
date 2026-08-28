@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 
 const stats = [
@@ -53,13 +54,13 @@ const theme = {
 };
 
 function GalleryPlaceholder({
-  gradient,
+  image,
   label,
   className = "",
   padded = false,
   backing = "",
 }: {
-  gradient: string;
+  image: string;
   label: string;
   className?: string;
   padded?: boolean;
@@ -82,10 +83,18 @@ function GalleryPlaceholder({
           ${className}
         `}
       >
-        <div
-          className="relative h-full min-h-[180px] w-full overflow-hidden rounded-lg sm:min-h-[220px] md:min-h-0"
-          style={{ background: gradient }}
-        >
+        <div className="relative h-full min-h-[180px] w-full overflow-hidden rounded-lg sm:min-h-[220px] md:min-h-0">
+          <Image
+            src={image}
+            alt={label}
+            fill
+            priority={false}
+            className="object-cover transition-transform duration-700 hover:scale-105"
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+          />
+
+          <div className="absolute inset-0 bg-black/5" />
+
           <div className="absolute inset-0 flex items-end p-3">
             <span className="rounded-full bg-black/30 px-2.5 py-1 text-[10px] font-medium text-white/80 backdrop-blur-sm sm:text-[11px]">
               {label}
@@ -107,8 +116,18 @@ function GalleryPlaceholder({
         md:min-h-0
         ${className}
       `}
-      style={{ background: gradient }}
     >
+      <Image
+        src={image}
+        alt={label}
+        fill
+        priority={false}
+        className="object-cover transition-transform duration-700 hover:scale-105"
+        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+      />
+
+      <div className="absolute inset-0 bg-black/5" />
+
       <div className="absolute inset-0 flex items-end p-3 sm:p-4">
         <span className="rounded-full bg-black/30 px-2.5 py-1 text-[10px] font-medium text-white/80 backdrop-blur-sm sm:px-3 sm:text-xs">
           {label}
@@ -142,9 +161,10 @@ export default function PortfolioOverview({
       `}
     >
       <div className="mx-auto w-full max-w-5xl">
-        
+
         {/* ================= STATS ================= */}
-        <div className="grid grid-cols-3 gap-3 text-center  sm:gap-8 md:gap-10">
+
+        <div className="grid grid-cols-3 gap-3 text-center sm:gap-8 md:gap-10">
           {stats.map((s) => (
             <motion.div
               key={s.label}
@@ -185,10 +205,12 @@ export default function PortfolioOverview({
           ))}
         </div>
 
-        {/* Divider */}
+        {/* ================= DIVIDER ================= */}
+
         <div className={`mt-6 border-t sm:mt-8 ${t.divider}`} />
 
         {/* ================= GALLERY ================= */}
+
         <div
           className="
             mt-7
@@ -204,9 +226,11 @@ export default function PortfolioOverview({
             md:gap-5
           "
         >
-          {/* LEFT IMAGE */}
+
+          {/* ================= LEFT IMAGE ================= */}
+
           <GalleryPlaceholder
-            gradient="linear-gradient(160deg, #7c2d12 0%, #c2410c 45%, #f97316 100%)"
+            image="/services/about-image1.webp"
             label="Brand campaign"
             className="
               sm:col-span-2
@@ -217,9 +241,10 @@ export default function PortfolioOverview({
             "
           />
 
-          {/* TOP MIDDLE IMAGE */}
+          {/* ================= TOP MIDDLE IMAGE ================= */}
+
           <GalleryPlaceholder
-            gradient="linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%)"
+            image="/services/about-image2.webp"
             label="Product shoot"
             className="
               sm:col-span-1
@@ -229,7 +254,8 @@ export default function PortfolioOverview({
             backing={t.backing}
           />
 
-          {/* INFO CARD */}
+          {/* ================= INFO CARD ================= */}
+
           <div
             className={`
               rounded-2xl
@@ -250,7 +276,9 @@ export default function PortfolioOverview({
               `}
             >
               24
-              <sup className="text-xs font-semibold sm:text-sm">HR</sup>
+              <sup className="text-xs font-semibold sm:text-sm">
+                HR
+              </sup>
             </p>
 
             <p
@@ -279,9 +307,10 @@ export default function PortfolioOverview({
             </p>
           </div>
 
-          {/* RIGHT IMAGE */}
+          {/* ================= RIGHT IMAGE ================= */}
+
           <GalleryPlaceholder
-            gradient="linear-gradient(160deg, #7f1d1d 0%, #991b1b 45%, #b91c1c 100%)"
+            image="/services/about-image3.webp"
             label="Product ad"
             className="
               sm:col-span-1
@@ -292,10 +321,12 @@ export default function PortfolioOverview({
           />
         </div>
 
-        {/* Divider */}
+        {/* ================= DIVIDER ================= */}
+
         <div className={`mt-8 border-t sm:mt-10 ${t.divider}`} />
 
         {/* ================= MARQUEE ================= */}
+
         <div
           className={`
             relative
@@ -306,7 +337,9 @@ export default function PortfolioOverview({
             ${t.marqueeBg}
           `}
         >
+
           {/* Left fade */}
+
           <div
             className={`
               pointer-events-none
@@ -324,6 +357,7 @@ export default function PortfolioOverview({
           />
 
           {/* Right fade */}
+
           <div
             className={`
               pointer-events-none
@@ -340,6 +374,8 @@ export default function PortfolioOverview({
             `}
           />
 
+          {/* Marquee */}
+
           <motion.div
             className="
               flex
@@ -354,7 +390,9 @@ export default function PortfolioOverview({
               sm:text-sm
               md:text-base
             "
-            animate={{ x: ["0%", "-50%"] }}
+            animate={{
+              x: ["0%", "-50%"],
+            }}
             transition={{
               duration: 22,
               repeat: Infinity,
@@ -371,7 +409,9 @@ export default function PortfolioOverview({
                     key={`${loopIdx}-${item}`}
                     className="flex items-center gap-2.5 sm:gap-3"
                   >
-                    <span className={t.marqueeText}>{item}</span>
+                    <span className={t.marqueeText}>
+                      {item}
+                    </span>
 
                     <span className={t.marqueeSep}>
                       &#10022;

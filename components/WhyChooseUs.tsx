@@ -14,21 +14,21 @@ const cards = [
     ),
     description:
       "Research-driven strategies delivering smarter decisions and measurable business growth.",
-    image: "/images/strategy.webp",
+    image: "/services/whychooseus-image1.webp",
     type: "wide",
   },
   {
     title: "Creativity & Innovation",
     description:
       "Blending creativity, technology, and AI to help your brand stand out.",
-    image: "/images/creativity.webp",
+    image: "/services/whychooseus-image2.webp",
     type: "small",
   },
   {
     title: "Results-Focused Approach",
     description:
       "Driving more traffic, quality leads, and measurable business growth.",
-    image: "/images/results.webp",
+    image: "/services/whychooseus-image3.webp",
     type: "small",
   },
   {
@@ -41,7 +41,7 @@ const cards = [
     ),
     description:
       "Your dedicated growth partner with transparent communication and ongoing support.",
-    image: "/images/partnership.webp",
+    image: "/services/whychooseus-image4.webp",
     type: "wide",
   },
 ];

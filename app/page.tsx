@@ -8,6 +8,7 @@ import HowItWorks from "@/components/HowItWorks"
 import TestimonialDeck from "@/components/TestimonialDeck";
 import FAQSimple from "@/components/FAQSimple";
 import CtaSection from "@/components/CtaSection";
+import Bookcall from "@/components/Bookcall";
 
 export default function Home() {
   return (
@@ -137,10 +138,31 @@ export default function Home() {
         <TestimonialDeck/>
       </section>
 
-      <section className="relative z-10 min-h-screen w-full bg-black">
-        {/* Your next section */}
-        
-      </section>
+      <section id="contact" className="relative z-10 min-h-screen w-full bg-black px-4 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-24">
+  <div className="mx-auto flex w-full max-w-6xl flex-col items-center">
+
+    {/* Heading */}
+    <div className="mb-10 w-full text-center sm:mb-12 lg:mb-14">
+      <h2 className="mx-auto max-w-3xl font-dmsans text-2xl font-semibold leading-tight tracking-tight text-white sm:text-3xl md:text-3xl lg:text-4xl">
+        Book Your{" "}
+        <span className="bg-gradient-to-r from-white via-purple-300 to-purple-600 bg-clip-text text-transparent">
+          Free Strategy Call
+        </span>
+      </h2>
+
+      <p className="mx-auto mt-4 max-w-2xl px-2 font-dmsans text-sm leading-6 text-white/55 sm:mt-5 sm:text-base sm:leading-7 lg:text-lg">
+        Let’s discuss your business, understand your objectives, and create a
+        clear roadmap to achieve measurable growth.
+      </p>
+    </div>
+
+    {/* Cal.com */}
+    <div className="w-full overflow-hidden">
+      <Bookcall />
+    </div>
+
+  </div>
+</section>
 
       <section className="relative z-10  w-full bg-white">
         {/* Your next section */}
