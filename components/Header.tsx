@@ -53,7 +53,7 @@ const Header = () => {
         </nav>
 
         <div className="hidden md:block">
-          <Button href="#contact">Book a call</Button>
+          <Button href="/#contact">Book a call</Button>
         </div>
 
         <button
