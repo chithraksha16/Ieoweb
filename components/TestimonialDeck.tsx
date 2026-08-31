@@ -11,34 +11,34 @@ import {
 const TESTIMONIALS = [
   {
     quote:
-      "Walked in with three reference photos and a half-formed idea. Walked out with a piece that fits better than what I asked for.",
-    name: "Shabaza. T",
-    detail: "Founder,Trek",
-  },
-  {
-    quote:
-      "First tattoo, and they talked me through every step before it started. Zero regrets, already planning the next one.",
+      "Within a few months, our organic traffic started growing consistently. The SEO strategy was clear, practical, and focused on real results.",
     name: "Aravind K.",
-    detail: "First session",
+    detail: "SEO & GEO",
   },
   {
     quote:
-      "Covered up a bad stick-and-poke from years ago. You genuinely cannot tell there was ever anything underneath.",
+      "They completely transformed our visual identity. From social creatives to brand graphics, everything now feels consistent and professional.",
     name: "Meera S.",
-    detail: "Cover-up",
+    detail: "Graphic Design & Branding",
   },
   {
     quote:
-      "Booked a full-day session for a backpiece and the pacing was perfect — breaks exactly when I needed them.",
+      "Our ad campaigns became much more focused. We started getting better-quality leads without simply increasing the budget.",
     name: "Rohan D.",
-    detail: "Full-day session",
+    detail: "Paid Advertising",
   },
   {
     quote:
-      "Sent a rough reference board and they turned it into something that actually feels like mine.",
+      "They understood our brand, created content that actually sounded like us, and helped us build a much stronger presence online.",
     name: "Ishita V.",
-    detail: "Custom linework",
+    detail: "Social Media & Content",
   },
+   {
+    quote:
+      "Our website finally feels like our brand. The design is clean, fast, and actually helps turn visitors into enquiries.",
+    name: "Shabaza T.",
+    detail: "Website Development",
+  }
 ];
 
 function Avatar({ name }: { name: string }) {

@@ -4,13 +4,13 @@ import { FaXTwitter } from "react-icons/fa6";
 import Logo from "./Logo";
 
 const services = [
-  { label: "SEO & GEO", href: "/services/seo-geo" },
-  { label: "Paid Advertising", href: "/services/paid-advertising" },
-  { label: "Content Marketing", href: "/services/content-marketing" },
-  { label: "Branding", href: "/services/branding" },
-  { label: "Social Media Marketing", href: "/services/social-media-marketing" },
-  { label: "Email Marketing", href: "/services/email-marketing" },
-  { label: "Web Development", href: "/services/web-development" },
+  { label: "SEO & GEO", href: "/services" },
+  { label: "Paid Advertising", href: "/services" },
+  { label: "Content Marketing", href: "/services" },
+  { label: "Branding", href: "/services" },
+  { label: "Social Media Marketing", href: "/services" },
+  { label: "Email Marketing", href: "/services" },
+  { label: "Web Development", href: "/services" },
 ];
 
 const company = [
