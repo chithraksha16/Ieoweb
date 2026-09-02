@@ -6,19 +6,17 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
-const dmSans = DM_Sans({
+const dmsans=DM_Sans({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-dm-sans",
-  display: "swap",
-});
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  variable: "--font-dmsans",
+})
 
-const playfairDisplay = Playfair_Display({
+const playfairdisplay=Playfair_Display({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-playfair-display",
-  display: "swap",
-});
+  weight: [ "400", "500", "600", "700", "800", "900"],
+  variable: "--font-playfairdisplay",
+})
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://ieoweb.com"),
@@ -114,7 +112,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html
       lang="en"
-      className={`${dmSans.variable} ${playfairDisplay.variable}`}
+      className={`${dmsans.variable} ${dmsans.className} ${playfairdisplay.variable} ${playfairdisplay.className}`}
     >
       <body className="min-h-screen flex flex-col font-sans">
         <Header />
