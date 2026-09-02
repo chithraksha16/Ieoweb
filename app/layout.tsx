@@ -1,31 +1,35 @@
+
 import type { Metadata } from "next";
-import { DM_Sans,Playfair_Display } from "next/font/google";
+import { DM_Sans, Playfair_Display } from "next/font/google";
 import "./globals.css";
+
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
-const dmsans=DM_Sans({
+const dmSans = DM_Sans({
   subsets: ["latin"],
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
-  variable: "--font-dmsans",
-})
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-dm-sans",
+  display: "swap",
+});
 
-const playfairdisplay=Playfair_Display({
+const playfairDisplay = Playfair_Display({
   subsets: ["latin"],
-  weight: [ "400", "500", "600", "700", "800", "900"],
-  variable: "--font-playfairdisplay",
-})
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-playfair-display",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://yourdomain.com"),
+  metadataBase: new URL("https://ieoweb.com"),
 
   title: {
-    default: "Digital Marketing Agency | SEO, Branding, Ads & Web Development",
-    template: "%s | Your Agency Name",
+    default: "Digital Marketing | Ieoweb",
+    template: "%s | Ieoweb",
   },
 
   description:
-    "A growth-focused digital marketing agency helping businesses build stronger brands and grow online through SEO, GEO, paid advertising, branding, content, social media, automation, and web development.",
+    "Ieoweb is a growth-focused digital marketing agency helping businesses grow through SEO, GEO, paid advertising, branding, content marketing, social media, automation, and web development.",
 
   keywords: [
     "Digital Marketing Agency",
@@ -47,16 +51,25 @@ export const metadata: Metadata = {
     "Marketing Strategy",
   ],
 
+  authors: [
+    {
+      name: "Ieoweb",
+      url: "https://ieoweb.com",
+    },
+  ],
+
+  creator: "Ieoweb",
+  publisher: "Ieoweb",
+
   openGraph: {
-    title:
-      "Digital Marketing Agency | SEO, Branding, Ads & Web Development",
+    title: "Digital Marketing Agency | Ieoweb",
 
     description:
-      "We combine strategy, creativity, technology, and marketing to help businesses build stronger brands and achieve sustainable digital growth.",
+      "Strategy, creativity, technology, and marketing designed to help businesses build stronger brands and achieve sustainable digital growth.",
 
-    url: "https://yourdomain.com",
+    url: "https://ieoweb.com",
 
-    siteName: "Your Agency Name",
+    siteName: "Ieoweb",
 
     locale: "en_IN",
 
@@ -67,7 +80,7 @@ export const metadata: Metadata = {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Your Agency Name - Digital Marketing Agency",
+        alt: "Ieoweb - Digital Marketing Agency",
       },
     ],
   },
@@ -75,17 +88,16 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
 
-    title:
-      "Digital Marketing Agency | SEO, Branding, Ads & Web Development",
+    title: "Digital Marketing Agency | Ieoweb",
 
     description:
-      "Strategy, branding, SEO, advertising, social media, automation, and web development built around business growth.",
+      "SEO, branding, advertising, content, social media, automation, and web development focused on business growth.",
 
     images: ["/og-image.jpg"],
   },
 
   alternates: {
-    canonical: "https://yourdomain.com",
+    canonical: "https://ieoweb.com",
   },
 
   robots: {
@@ -94,59 +106,25 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
+interface RootLayoutProps {
   children: React.ReactNode;
-}>) {
-  const organizationSchema = {
-    "@context": "https://schema.org",
-    "@type": "MarketingAgency",
+}
 
-    name: "Your Agency Name",
-
-    url: "https://yourdomain.com",
-
-    logo: "https://yourdomain.com/logo.png",
-
-    image: "https://yourdomain.com/og-image.jpg",
-
-    description:
-      "A growth-focused digital marketing agency providing SEO, GEO, paid advertising, branding, content marketing, social media, automation, graphic design, and web development services.",
-
-    areaServed: "Worldwide",
-
-    serviceType: [
-      "Digital Marketing",
-      "SEO",
-      "GEO",
-      "Paid Advertising",
-      "Performance Marketing",
-      "Branding",
-      "Content Marketing",
-      "Social Media Marketing",
-      "Graphic Design",
-      "CRM Automation",
-      "Web Development",
-    ],
-
-    sameAs: [
-      "https://www.instagram.com/youragency",
-      "https://www.linkedin.com/company/youragency",
-    ],
-  };
-
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html
       lang="en"
-      className={`${playfairdisplay.variable} ${playfairdisplay.className} ${dmsans.variable} ${dmsans.className}`}
+      className={`${dmSans.variable} ${playfairDisplay.variable}`}
     >
-      <body className="min-h-full flex flex-col">
-        <Header/>
-        {children}
-        <Footer/>
-        </body>
+      <body className="min-h-screen flex flex-col font-sans">
+        <Header />
+
+        <main className="flex-1">
+          {children}
+        </main>
+
+        <Footer />
+      </body>
     </html>
   );
 }

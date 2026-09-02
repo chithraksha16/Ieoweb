@@ -3,6 +3,7 @@ import {motion} from 'framer-motion'
 import { MdOutlineEmail,MdOutlineLocalPhone } from "react-icons/md";
 import { FiMapPin } from "react-icons/fi";
 import { FaArrowRight } from "react-icons/fa6";
+import Link from 'next/link';
 
 const page = () => {
   const contactDetails = [
@@ -126,6 +127,7 @@ const page = () => {
               Skip the back-and-forth emails and book a free 30-minute
               strategy call with our team.
             </p>
+            <Link href={'/#contact'}>
             <button
               type="button"
               className="mt-5 inline-flex items-center gap-1.5 rounded-full px-6 py-2.5 text-sm font-medium text-black transition-transform hover:scale-[1.03]"
@@ -136,6 +138,7 @@ const page = () => {
             >
               Book a call
             </button>
+            </Link>
           </div>
         </motion.div>
  
