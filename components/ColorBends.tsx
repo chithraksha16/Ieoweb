@@ -530,7 +530,7 @@ export default function ColorBends({
     );
 
     const clock =
-      new THREE.Clock();
+      new THREE.Timer();
 
     // ========================================
     // RESIZE
@@ -601,7 +601,7 @@ export default function ColorBends({
         clock.getDelta();
 
       const elapsed =
-        clock.elapsedTime;
+        clock.getElapsed();
 
       material.uniforms
         .uTime.value =
