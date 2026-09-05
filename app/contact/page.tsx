@@ -4,8 +4,12 @@ import { MdOutlineEmail,MdOutlineLocalPhone } from "react-icons/md";
 import { FiMapPin } from "react-icons/fi";
 import { FaArrowRight } from "react-icons/fa6";
 import Link from 'next/link';
-
+import emailjs from "@emailjs/browser";
+import { useRef,useState } from 'react';
 const page = () => {
+
+
+
   const contactDetails = [
   {
     icon: MdOutlineEmail,
@@ -28,6 +32,27 @@ const page = () => {
     note: "Working with clients worldwide.",
   },
 ];
+
+const formRef = useRef<HTMLFormElement>(null); 
+const [isSending, setIsSending] = useState(false);
+const [status, setStatus] = useState("");
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault(); 
+    if (!formRef.current) return;
+      setIsSending(true); setStatus("");
+      try { await emailjs.sendForm( process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!, process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!, formRef.current, { publicKey: process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!, } );
+        setStatus("Message sent successfully!"); 
+        formRef.current.reset();
+      } 
+      catch (error) { 
+        console.error("EmailJS Error:", error);
+        setStatus("Failed to send message. Please try again.");
+        } 
+        finally { setIsSending(false); 
+        } 
+        };
+
   return (
     <div className='w-full'>
       <div className="mt-40 flex w-full justify-center px-4 sm:mt-32 sm:px-6 lg:mt-40 lg:px-8 sm:py-10 py-6">
@@ -165,8 +190,9 @@ const page = () => {
           </div>
  
           <form
+            ref={formRef}
             className="mt-8 space-y-6"
-            onSubmit={(e) => e.preventDefault()}
+            onSubmit={handleSubmit}
           >
             <div>
               <label
@@ -215,11 +241,14 @@ const page = () => {
               />
             </div>
             <button
+              disabled={isSending}
               type="submit"
               className="flex w-full items-center justify-center gap-1.5 rounded-lg border border-white/10 bg-white/4 py-3.5 text-sm font-medium text-white transition hover:bg-white/8"
             >
-              Submit
-              <FaArrowRight  className="h-4 w-4 -rotate-45" />
+              {isSending ? "Sending..." : "Submit"}
+              {!isSending && (
+                <FaArrowRight className="h-4 w-4 -rotate-45" />
+              )}
             </button>
           </form>
         </motion.div>
